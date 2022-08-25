@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+<hibernate-mapping>
+<class name="com.hexaware.hibernateonetooneexample.model.Employee" table="emp123" catalog="sample">
+	<id name="empId" column="empid" />
+	<property name="empName" column="empname" length="30" />
+ 	<property name="empEmail" column="empemail" length="30" />
+	<property name="empSalary" column="empsal" />
+</class>  
+</hibernate-mapping> 

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+<hibernate-mapping>
+<class name="com.hexaware.hibernateinheritancexample.entity.AmazonCustomer" table="amazoncustomer" catalog="sample" discriminator-value="cust">
+	<id name="customerId" type="java.lang.Long">
+		<column name="customerid" />
+		<generator class="increment"></generator>
+	</id> 
+	<discriminator column="typeofcustomer" type="string"></discriminator>
+	
+	<property name="customerName" type="java.lang.String">
+		<column name="customername" length="30"/>
+	</property>  
+	<property name="customerMobileNo" type="java.lang.String">
+		<column name="customermobno" length="30"/>
+	</property>
+	<property name="customerEmail" type="java.lang.String">
+		<column name="customeremail" length="30"/>
+	</property>
+	<subclass name="com.hexaware.hibernateinheritancexample.entity.PrimeCustomer" discriminator-value="isPrime">
+	<property name="validityOfSubscription" type="java.lang.String">
+		<column name="validityofsubscription" length="30"/>
+	</property>
+	</subclass>
+	<subclass name="com.hexaware.hibernateinheritancexample.entity.RegularCustomer" discriminator-value="non-Prime">
+	<property name="deliveryDuration" type="java.lang.Integer">
+		<column name="deliveryduration" length="30"/>
+	</property>
+	</subclass>
+</class>  
+</hibernate-mapping> 

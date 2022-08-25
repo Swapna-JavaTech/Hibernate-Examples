@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+<hibernate-mapping>
+<class name="com.hexaware.hibernateonetomanyusingxml.entity.Employee" table="newemp12345" catalog="sample">
+	<id name="empId" column="empid" > 
+		<generator class="identity"></generator>
+	</id>
+	<property name="empName" column="empname" length="30" />
+ 	<property name="empEmail" column="empemail" length="30" />
+	<property name="empSalary" column="empsal" />
+	<set name="departments" cascade="all">
+		<key column="empid_fk" />
+		<one-to-many class="com.hexaware.hibernateonetomanyusingxml.entity.Department"/>
+	</set>
+</class>  
+</hibernate-mapping> 

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+<hibernate-mapping>
+<class name="com.hexaware.hibernateinheritancetablepersubclass.entity.AmazonCustomer" table="amazoncustomer123" catalog="sample">
+	<id name="customerId" type="java.lang.Long">
+		<column name="customerid" />
+		<generator class="increment"></generator>
+	</id> 
+	
+	
+	<property name="customerName" type="java.lang.String">
+		<column name="customername" length="30"/>
+	</property>  
+	<property name="customerMobileNo" type="java.lang.String">
+		<column name="customermobno" length="30"/>
+	</property>
+	<property name="customerEmail" type="java.lang.String">
+		<column name="customeremail" length="30"/>
+	</property>
+	<joined-subclass name="com.hexaware.hibernateinheritancetablepersubclass.entity.PrimeCustomer" table="primecustomer123">
+	<key column="pcid"></key>
+	<property name="validityOfSubscription" type="java.lang.String">
+		<column name="validityofsubscription" length="30"/>
+	</property>
+	</joined-subclass>
+	<joined-subclass name="com.hexaware.hibernateinheritancetablepersubclass.entity.RegularCustomer" table="regularcustomer123">
+		<key column="rcid"></key>
+	<property name="deliveryDuration" type="java.lang.Integer">
+		<column name="deliveryduration" length="30"/>
+	</property>
+	</joined-subclass>
+</class>  
+</hibernate-mapping> 
